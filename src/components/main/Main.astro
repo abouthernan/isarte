@@ -1,0 +1,76 @@
+---
+import heroSmall from "../../assets/images/hero/hero-small.webp";
+import heroFull from "../../assets/images/hero/hero-full.webp";
+---
+
+<main>
+  <picture>
+    <source media="(max-width: 767px)" srcset={heroSmall} />
+    <source media="(min-width: 768px)" srcset={heroFull} />
+    <img
+      src={heroFull}
+      alt="puede ser una imagen de una obra de arte de isarte"
+    />
+  </picture>
+
+  <h1 class="hero__title">Portafolio</h1>
+
+  <picture>
+    <source media="(max-width: 767px)" srcset={heroSmall} />
+    <source media="(min-width: 768px)" srcset={heroFull} />
+    <img
+      src={heroFull}
+      alt="puede ser una imagen de una obra de arte de isarte"
+    />
+  </picture>
+</main>
+
+<style>
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  picture {
+    height: 44.2rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .hero__title {
+    color: var(--black);
+    text-transform: uppercase;
+    font-family: var(--font-secondary);
+    font-weight: 100;
+    font-size: var(--font-xl);
+    padding: 1rem 0;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      flex-direction: row;
+    }
+
+    .hero__title {
+      font-size: var(--font-xl);
+      writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      padding: 0;
+    }
+
+    picture {
+      height: 100vh;
+    }
+</style>
+

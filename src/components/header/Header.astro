@@ -1,0 +1,49 @@
+<header>
+  <div class="container content">
+    <a href="/" class="logo">Isarte</a>
+    <button class="menu">Menu</button>
+  </div>
+</header>
+
+<style>
+  header {
+    background: var(--white);
+    padding: 2.4rem 0;
+    z-index: 1;
+  }
+
+  .logo {
+    font-size: var(--font-md);
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-md);
+    font-family: var(--font-primary);
+    color: var(--black);
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    header {
+      background: transparent;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+</style>
