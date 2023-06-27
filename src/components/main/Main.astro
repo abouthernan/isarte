@@ -1,8 +1,10 @@
 ---
 import heroSmall from "../../assets/images/hero/hero-small.webp";
 import heroFull from "../../assets/images/hero/hero-full.webp";
+import Header from "../../components/header/Header.astro";
 ---
 
+<Header />
 <main>
   <picture>
     <source media="(max-width: 767px)" srcset={heroSmall} />
@@ -58,6 +60,8 @@ import heroFull from "../../assets/images/hero/hero-full.webp";
   @media (min-width: 768px) {
     main {
       flex-direction: row;
+      min-width: 100vw;
+      scroll-snap-align: start;
     }
 
     .hero__title {

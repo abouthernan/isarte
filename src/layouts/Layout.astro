@@ -92,4 +92,45 @@ const { title } = Astro.props;
     margin: 0 auto;
     padding: 0 2.7rem;
   }
+
+  @media (min-width: 768px) {
+    body {
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+      max-height: 100vh;
+      min-width: 100vw;
+      scroll-snap-type: x mandatory;
+    }
+
+    ::-webkit-scrollbar {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--black);
+    }
+  }
 </style>
+
+<script lang="js">
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener(
+    "wheel",
+    (event) => {
+      let delta = Math.sign(event.deltaY || -event.detail);
+      window.scrollBy({
+        left: delta * 100,
+      });
+
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+});
+</script>

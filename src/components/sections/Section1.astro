@@ -1,0 +1,37 @@
+<section>
+  <h2>Je suis clara et c'est mon portfolio</h2>
+  <p>
+    lorem ipsum dolor sit amet, consect etur adispiscing elit, sed do eiusmod
+    tempor includunt ut labore et dolore
+  </p>
+</section>
+
+<style>
+  section {
+    background-color: var(--black);
+    padding: 2.4rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--white);
+  }
+
+  h2 {
+    font-weight: bold;
+    font-family: var(--font-primary);
+    font-size: var(--font-lg);
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding: 8rem;
+      scroll-snap-align: start;
+    }
+  }
+</style>

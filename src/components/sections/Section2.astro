@@ -1,0 +1,120 @@
+---
+import galleryPicture from "../../assets/images/nav/gallery.webp";
+import awardsPicture from "../../assets/images/nav/awards.webp";
+import exhibitionsPicture from "../../assets/images/nav/exhibitions.webp";
+import eventsPicture from "../../assets/images/nav/events.webp";
+
+const router = [
+  {
+    path: "#",
+    name: "Gallery",
+    picture: galleryPicture,
+  },
+  {
+    path: "#",
+    name: "Awards",
+    picture: awardsPicture,
+  },
+  {
+    path: "#",
+    name: "Exhibitions",
+    picture: exhibitionsPicture,
+  },
+  {
+    path: "#",
+    name: "Events",
+    picture: eventsPicture,
+  },
+];
+---
+
+<nav>
+ {router.map(({path, name, picture}) => (
+    <a href={path} aria-label={name} title={name}>
+    <img
+      src={picture}
+      width="375"
+      alt="puede ser una imagen de una de las obras de isarte"
+    />
+    <span>{name}</span>
+  </a>
+ ))}
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: column;
+    margin: 8rem 0;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    min-height: 100vh;
+    padding: 0 2.4rem;
+  }
+
+  a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 32.5rem;
+    width: 100%;
+    height: 55.3rem;
+    text-decoration: none;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  span {
+    color: var(--black);
+    font-family: var(--font-primary);
+    font-size: var(--font-md);
+    z-index: 2;
+    text-transform: uppercase;
+    transform: translateY(.5rem);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55.3rem;
+    background-color: var(--white);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+  }
+
+  a:hover::before {
+    opacity: 0.9;
+  }
+
+  a:hover span {
+    transform: translateY(-1.5rem);
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    nav {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8rem;
+      margin: 0;
+      scroll-snap-align: start;
+    }
+  }
+</style>
