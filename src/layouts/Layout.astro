@@ -120,6 +120,8 @@ const { title } = Astro.props;
 
 <script lang="js">
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.matchMedia("(max-width: 768px)").matches) return;
+
   document.body.addEventListener(
     "wheel",
     (event) => {
