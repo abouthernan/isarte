@@ -1,6 +1,8 @@
 ---
 import heroSmall from "../../assets/images/hero/hero-small.webp";
 import heroFull from "../../assets/images/hero/hero-full.webp";
+import slider1Small from "../../assets/images/hero/slider/slider1-small.webp";
+import slider1Full from "../../assets/images/hero/slider/slider1-full.webp";
 import Header from "../../components/header/Header.astro";
 ---
 
@@ -17,11 +19,11 @@ import Header from "../../components/header/Header.astro";
 
   <h1 class="hero__title">Portafolio</h1>
 
-  <picture>
-    <source media="(max-width: 767px)" srcset={heroSmall} />
-    <source media="(min-width: 768px)" srcset={heroFull} />
+  <picture class="slider-picture">
+    <source media="(max-width: 767px)" srcset={slider1Small} />
+    <source media="(min-width: 768px)" srcset={slider1Full} />
     <img
-      src={heroFull}
+      src={slider1Full}
       alt="puede ser una imagen de una obra de arte de isarte"
     />
   </picture>
@@ -45,7 +47,11 @@ import Header from "../../components/header/Header.astro";
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center;
+  }
+
+  .slider-picture img {
+    object-position:  top center;
   }
 
   .hero__title {
