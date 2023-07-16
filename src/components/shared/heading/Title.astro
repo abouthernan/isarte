@@ -1,0 +1,29 @@
+---
+export interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<header>
+  <div class="container">
+    <h1>{text}</h1>
+  </div>
+</header>
+
+<style>
+  header {
+    background: var(--cream);
+    width: 100vw;
+  }
+
+  h1 {
+    font-family: var(--font-primary);
+    font-size: var(--font-lg);
+    font-weight: 700;
+    padding: 8.3rem 0;
+    color: var(--black);
+    text-transform: uppercase;
+  }
+</style>

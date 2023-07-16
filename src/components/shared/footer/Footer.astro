@@ -1,0 +1,64 @@
+---
+const socialLinks = [
+  {
+    name: "Instagram",
+    url: "#",
+  },
+  {
+    name: "Facebook",
+    url: "#",
+  },
+  {
+    name: "Twitter",
+    url: "#",
+  },
+];
+---
+
+<footer>
+  <h2>Social</h2>
+  <nav>
+    {socialLinks.map(({ name, url }) => <a href={url}>{name}</a>)}
+  </nav>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--cream);
+    min-height: 41.5rem;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  h2 {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  a {
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    footer {
+      width: 100%;
+      min-width: 40vw;
+      margin: 0;
+      padding: 0;
+      scroll-snap-align: start;
+    }
+  }
+</style>

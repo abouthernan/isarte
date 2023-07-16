@@ -1,42 +1,30 @@
 ---
-import galleryPicture from "../../assets/images/nav/gallery.webp";
-import awardsPicture from "../../assets/images/nav/awards.webp";
-import exhibitionsPicture from "../../assets/images/nav/exhibitions.webp";
-import eventsPicture from "../../assets/images/nav/events.webp";
-import workshopsPicture from "../../assets/images/nav/workshops.webp";
+import thumb from '../../assets/images/hero/slider/slider4-full.webp'
+import thumb2 from '../../assets/images/hero/slider/slider2-full.webp'
+import thumb3 from '../../assets/images/hero/slider/slider3-full.webp'
 
-const router = [
+const categories = [
   {
-    path: "/galeria",
-    name: "Galería",
-    picture: galleryPicture,
+    path: "/category/escultura",
+    name: "escultura",
+    picture: thumb,
   },
   {
-    path: "#",
-    name: "Exposiciones",
-    picture: awardsPicture,
+    path: "/category/pintura",
+    name: "Óleo",
+    picture: thumb2,
   },
   {
-    path: "#",
-    name: "Tienda",
-    picture: exhibitionsPicture,
-  },
-  {
-    path: "#",
-    name: "Talleres",
-    picture: eventsPicture,
-  },
-  {
-    path: "#",
-    name: "Reconocimientos",
-    picture: workshopsPicture,
-  },
-];
+    path: "/category/escultura",
+    name: "Maché",
+    picture: thumb3,
+  }
+]
 ---
 
 <nav>
- {router.map(({path, name, picture}) => (
-    <a href={path} aria-label={name} title={name}>
+ {categories.map(({path, name, picture}) => (
+  <a href={path} aria-label={name} title={name}>
     <img
       src={picture}
       width="375"
@@ -49,14 +37,14 @@ const router = [
 
 <style>
   nav {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     margin: 8rem 0;
     justify-content: center;
     align-items: center;
     gap: 8rem;
     min-height: 100vh;
     padding: 0 2.4rem;
+    grid-template-columns: 1fr;
   }
 
   a {
@@ -115,12 +103,12 @@ const router = [
 
   @media (min-width: 768px) {
     nav {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
       padding: 0 8rem;
-      margin: 0;
-      scroll-snap-align: start;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    span {
+      font-size: var(--font-lg);
     }
   }
 </style>
