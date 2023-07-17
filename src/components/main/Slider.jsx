@@ -43,9 +43,9 @@ export function Slider() {
       showStatus={false}
     >
       {images.map(({ full, small }) => (
-        <picture className="slider-picture">
-          <source media="(max-width: 767px)" srcset={small} />
-          <source media="(min-width: 768px)" srcset={full} />
+        <picture className="slider-picture" key={crypto.randomUUID()}>
+          <source media="(max-width: 767px)" srcSet={small} />
+          <source media="(min-width: 768px)" srcSet={full} />
           <img
             src={slider1Full}
             alt="puede ser una imagen de una obra de arte de isarte"
