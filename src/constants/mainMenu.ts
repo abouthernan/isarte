@@ -8,6 +8,7 @@ export interface MainMenuProps {
   path: string
   name: string
   picture: string
+  external?: boolean
 }
 
 export const mainMenu = [
@@ -22,9 +23,10 @@ export const mainMenu = [
     picture: awardsPicture
   },
   {
-    path: '#',
+    path: 'https://tienda.isabelrengifo.art',
     name: 'Tienda',
-    picture: exhibitionsPicture
+    picture: exhibitionsPicture,
+    external: true
   },
   {
     path: '#',

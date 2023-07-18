@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { mainMenu } from '../../constants/mainMenu'
+import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
 
 export const Nav = ({ isOpen }: { isOpen: boolean }) => {
   return (
@@ -19,9 +19,11 @@ export const Nav = ({ isOpen }: { isOpen: boolean }) => {
         <li>
           <a href="/">Home</a>
         </li>
-        {mainMenu.map(item => (
+        {mainMenu.map(({ path, name, external }: MainMenuProps) => (
           <li>
-            <a href={item.path}>{item.name}</a>
+            <a href={path} target={external ? '_blank' : ''}>
+              {name}
+            </a>
           </li>
         ))}
       </ul>

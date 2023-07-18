@@ -3,8 +3,8 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
 ---
 
 <nav>
- {mainMenu.map(({path, name, picture}: MainMenuProps) => (
-    <a href={path} aria-label={name} title={name}>
+ {mainMenu.map(({path, name, picture, external }: MainMenuProps) => (
+    <a href={path} aria-label={name} title={name} target={external ? '_blank' : ''}>
     <img
       src={picture}
       width="375"
@@ -88,7 +88,6 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
       justify-content: center;
       padding: 0 8rem;
       margin: 0;
-      scroll-snap-align: start;
     }
   }
 </style>
