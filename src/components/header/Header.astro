@@ -1,5 +1,6 @@
 ---
 import logo from '../../assets/images/logo-v2.svg'
+import ToggleButton from '../nav/ToggleButton'
 ---
 
 <header>
@@ -7,7 +8,7 @@ import logo from '../../assets/images/logo-v2.svg'
     <a href="/" class="logo" title="logo">
       <img src={logo} height="45" alt="puede ser una imagen del logo de isarte">
     </a>
-    <button class="menu">Menu</button>
+    <ToggleButton client:load />
   </div>
 </header>
 
@@ -24,6 +25,7 @@ import logo from '../../assets/images/logo-v2.svg'
     font-family: var(--font-primary);
     color: var(--black);
     text-decoration: none;
+    z-index: 2;
   }
 
   .content {
@@ -32,7 +34,7 @@ import logo from '../../assets/images/logo-v2.svg'
     align-items: center;
   }
 
-  button {
+  :global(button.burger) {
     appearance: none;
     background: transparent;
     border: none;
@@ -41,6 +43,45 @@ import logo from '../../assets/images/logo-v2.svg'
     font-family: var(--font-primary);
     color: var(--black);
     text-transform: uppercase;
+    width: 7.5rem;
+  }
+
+  :global(nav.nav-menu) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  :global(nav.nav-menu ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  :global(nav.nav-menu ul li) {
+    font-size: var(--font-md);
+    font-family: var(--font-primary);
+    color: var(--black);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  :global(nav.nav-menu ul li a) {
+    text-decoration: none;
+    color: var(--black);
   }
 
   @media (min-width: 768px) {

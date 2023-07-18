@@ -114,4 +114,8 @@ const { title } = Astro.props;
       background: var(--black);
     }
   }
+
+  :has(.burger.open) {
+    overflow: hidden!important;
+  }
 </style>

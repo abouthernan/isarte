@@ -1,41 +1,9 @@
 ---
-import galleryPicture from "../../assets/images/nav/gallery.webp";
-import awardsPicture from "../../assets/images/nav/awards.webp";
-import exhibitionsPicture from "../../assets/images/nav/exhibitions.webp";
-import eventsPicture from "../../assets/images/nav/events.webp";
-import workshopsPicture from "../../assets/images/nav/workshops.webp";
-
-const router = [
-  {
-    path: "/galeria",
-    name: "Galería",
-    picture: galleryPicture,
-  },
-  {
-    path: "#",
-    name: "Exposiciones",
-    picture: awardsPicture,
-  },
-  {
-    path: "#",
-    name: "Tienda",
-    picture: exhibitionsPicture,
-  },
-  {
-    path: "#",
-    name: "Talleres",
-    picture: eventsPicture,
-  },
-  {
-    path: "#",
-    name: "Reconocimientos",
-    picture: workshopsPicture,
-  },
-];
+import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
 ---
 
 <nav>
- {router.map(({path, name, picture}) => (
+ {mainMenu.map(({path, name, picture}: MainMenuProps) => (
     <a href={path} aria-label={name} title={name}>
     <img
       src={picture}
