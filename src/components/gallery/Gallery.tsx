@@ -19,7 +19,7 @@ export const Gallery: FC<GalleryProps> = ({ selected }) => {
 
 
   return (
-    <nav className={styles.nav}>
+    <nav className={`container ${styles.nav}`}>
       {
         loading ? <Skeleton /> : (
           error ? <p className={styles.error}>No hay obras en esta categoría 😓</p> :
