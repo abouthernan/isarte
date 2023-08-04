@@ -25,7 +25,8 @@ export async function get() {
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Methods': 'GET',
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': ['https://www.isabelrengifo.art', 'https://isabelrengifo.art', 'https://www.isabelrengifo.art/', 'https://isabelrengifo.art/'],
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   })
 }

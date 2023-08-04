@@ -15,8 +15,7 @@ export const useGetProducts = (selected: string) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
+        }
       });
       const data = await response.json();
       const filteredData = data.filter((product: ProductProps) => product.category === selected || selected === 'all');
