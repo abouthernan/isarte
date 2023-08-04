@@ -24,7 +24,8 @@ export async function get() {
     status: 200,
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Methods': 'GET'
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Origin': '*',
     }
   })
 }
