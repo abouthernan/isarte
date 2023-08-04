@@ -11,7 +11,13 @@ export const useGetProducts = (selected: string) => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch(`${API_URL}/api/products`);
+      const response = await fetch(`${API_URL}/api/products`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+      });
       const data = await response.json();
       const filteredData = data.filter((product: ProductProps) => product.category === selected || selected === 'all');
 
