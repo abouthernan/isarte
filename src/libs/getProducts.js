@@ -3,7 +3,7 @@ export const getProducts = async () => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Access-Token': import.meta.env.TOKEN,
+      'X-Shopify-Access-Token': import.meta.env.ACCES_TOKEN_SHOPIFY,
       'Access-Control-Allow-Methods': 'GET'
     }
   })
