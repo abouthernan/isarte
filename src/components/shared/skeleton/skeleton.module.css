@@ -1,0 +1,15 @@
+.skeleton {
+  animation: skeleton-loading .5s linear infinite alternate;
+  width: 100%;
+  height: 55.3rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--cream);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 94%);
+  }
+}

@@ -15,7 +15,7 @@ export const ToggleButton = () => {
     <>
       <motion.button
         onClick={toggleButton}
-        class={`burger ${isOpen ? "open" : ""}`}
+        className={`burger ${isOpen ? "open" : ""}`}
         animate={{ rotate: isOpen ? 0 : 360 }}
         initial={false}
         style={{

@@ -1,34 +1,3 @@
----
-const itemsFilter = [
-  {
-    name: 'Todos',
-    value: 'all',
-  },
-  {
-    name: 'Óleo',
-    value: 'oil',
-  },
-  {
-    name: 'Maché',
-    value: 'mache',
-  }
-]
----
-
-<ul class="container mt">
-  {itemsFilter.map(({ name, value}) => (
-    <button
-      type="button"
-      data-filter={value}
-    >
-      {name}
-    </button>
-  ))}
-</ul>
-
-
-<style>
-
 .mt {
   margin-top: 8rem;
 }
@@ -36,6 +5,7 @@ const itemsFilter = [
 ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -53,9 +23,8 @@ button {
   font-family: var(--font-primary);
 }
 
-@media (min-width: 768px) {
+@media(min-width: 768px) {
   ul {
     justify-content: flex-start;
   }
 }
-</style>

@@ -36,10 +36,10 @@ export function Slider() {
       showThumbs={false}
       swipeable
       infiniteLoop
-      showArrows={false}
+      showIndicators={false}
       className="slider"
       stopOnHover={false}
-      interval={3500}
+      interval={4500}
       showStatus={false}
     >
       {images.map(({ full, small }) => (

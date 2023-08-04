@@ -1,0 +1,44 @@
+---
+export interface Props {
+  page: string
+}
+
+const { page } = Astro.props
+const url = Astro.url
+---
+
+<header>
+  <div class="container">
+    <p>
+      <a href="/">Home</a> / <a href="/galeria">Galeria</a> / <a
+        class="current"
+        href={url}>{page}</a
+      >
+    </p>
+  </div>
+</header>
+
+<style>
+  header {
+    background: var(--cream);
+    width: 100vw;
+  }
+
+  p {
+    font-family: var(--font-primary);
+    font-size: var(--font-base);
+    font-weight: 400;
+    padding: 6rem 0;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+
+  a {
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  a.current {
+    text-decoration: underline;
+  }
+</style>

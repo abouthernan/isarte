@@ -1,9 +1,9 @@
 ---
 export interface Props {
-  title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -22,31 +22,32 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   @font-face {
-    font-family: "Syne";
+    font-family: 'Syne';
     font-style: normal;
     font-weight: 700;
-    src: local("Open Sans"), url("/fonts/Syne-bold.woff2") format("woff2"),
-      url("/fonts/Syne-bold.ttf") format("truetype");
+    src: local('Open Sans'), url('/fonts/Syne-bold.woff2') format('woff2'),
+      url('/fonts/Syne-bold.ttf') format('truetype');
   }
 
   @font-face {
-    font-family: "Cormorant Infant";
+    font-family: 'Cormorant Infant';
     font-style: normal;
     font-weight: 400;
-    src: local("Cormorant Infant"),
-      url("/fonts/CormorantInfant-Regular.woff2") format("woff2"),
-      url("/fonts/CormorantInfant-Regular.ttf") format("truetype");
+    src: local('Cormorant Infant'),
+      url('/fonts/CormorantInfant-Regular.woff2') format('woff2'),
+      url('/fonts/CormorantInfant-Regular.ttf') format('truetype');
   }
 
   :root {
     --white: #fff;
     --black: #212121;
     --cream: #f5f4ed;
+    --yellow: #ffd26a;
     /* fonts */
-    --font-primary: "Syne", sans-serif;
-    --font-secondary: "Cormorant Infant", serif;
-    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    --font-primary: 'Syne', sans-serif;
+    --font-secondary: 'Cormorant Infant', serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
     /* font-size */
     --font-sm: 1.4rem;
@@ -81,8 +82,8 @@ const { title } = Astro.props;
   }
 
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
     font-size: var(--font-base);
     overflow-x: hidden;
@@ -118,26 +119,25 @@ const { title } = Astro.props;
   }
 
   :has(.burger.open) {
-    overflow: hidden!important;
+    overflow: hidden !important;
   }
-  
 </style>
 
 <script lang="js">
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.matchMedia("(max-width: 768px)").matches) return;
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.matchMedia('(max-width: 768px)').matches) return
 
   document.body.addEventListener(
-    "wheel",
-    (event) => {
-      let delta = Math.sign(event.deltaY || -event.detail);
+    'wheel',
+    event => {
+      let delta = Math.sign(event.deltaY || -event.detail)
       window.scrollBy({
-        left: delta * 500,
-      });
+        left: delta * 500
+      })
 
-      event.preventDefault();
+      event.preventDefault()
     },
     { passive: false }
-  );
-});
+  )
+})
 </script>
