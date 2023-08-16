@@ -53,7 +53,7 @@ const { title } = Astro.props
     --font-sm: 1.4rem;
     --font-base: 1.6rem;
     --font-md: 1.9rem;
-    --font-lg: 4rem;
+    --font-lg: clamp(3rem, 6vw, 4rem);
     --font-xl: 5rem;
   }
 
@@ -95,7 +95,7 @@ const { title } = Astro.props
     padding: 0 2.7rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     body {
       overflow-x: auto;
       overflow-y: hidden;

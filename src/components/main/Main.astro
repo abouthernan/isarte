@@ -1,8 +1,8 @@
 ---
-import heroSmall from "../../assets/images/hero/hero-small.webp";
-import heroFull from "../../assets/images/hero/hero-full.webp";
-import Header from "../../components/header/Header.astro";
-import { Slider } from "./Slider.jsx";
+import heroSmall from '../../assets/images/hero/hero-small.webp'
+import heroFull from '../../assets/images/hero/hero-full.webp'
+import Header from '../../components/header/Header.astro'
+import { Slider } from './Slider.jsx'
 ---
 
 <Header />
@@ -19,7 +19,6 @@ import { Slider } from "./Slider.jsx";
   <h1 class="hero__title">Portafolio</h1>
 
   <Slider client:load />
-
 </main>
 
 <style>
@@ -60,7 +59,7 @@ import { Slider } from "./Slider.jsx";
     padding: 1rem 0;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     main {
       flex-direction: row;
       min-width: 100vw;

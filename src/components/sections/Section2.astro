@@ -3,16 +3,23 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
 ---
 
 <nav>
- {mainMenu.map(({path, name, picture, external }: MainMenuProps) => (
-    <a href={path} aria-label={name} title={name} target={external ? '_blank' : ''}>
-    <img
-      src={picture}
-      width="375"
-      alt="puede ser una imagen de una de las obras de isarte"
-    />
-    <span>{name}</span>
-  </a>
- ))}
+  {
+    mainMenu.map(({ path, name, picture, external }: MainMenuProps) => (
+      <a
+        href={path}
+        aria-label={name}
+        title={name}
+        target={external ? '_blank' : ''}
+      >
+        <img
+          src={picture}
+          width="375"
+          alt="puede ser una imagen de una de las obras de isarte"
+        />
+        <span>{name}</span>
+      </a>
+    ))
+  }
 </nav>
 
 <style>
@@ -54,13 +61,13 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
     font-size: var(--font-md);
     z-index: 2;
     text-transform: uppercase;
-    transform: translateY(.5rem);
+    transform: translateY(0.5rem);
     opacity: 0;
     transition: all 0.5s ease-in-out;
   }
 
   a::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -81,7 +88,7 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     nav {
       flex-direction: row;
       align-items: center;
