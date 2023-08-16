@@ -19,7 +19,15 @@ const page: ProductProps = data.find(
 )
 if (!page) return Astro.redirect('/404')
 
-const { title: titleProduct, body, category, images, tags, createdAt } = page
+const {
+  title: titleProduct,
+  body,
+  category,
+  images,
+  tags,
+  createdAt,
+  slug
+} = page
 
 // format
 const date = new Date(createdAt)
@@ -49,15 +57,19 @@ const dateFormated = date.toLocaleDateString('en-CO', {
         <p class="sub">
           Date: <span>{dateFormated}</span>
         </p>
-        <p class="sub">Tags: <span>{tags}</span></p>
+        <a
+          href={`https://tienda.isabelrengifo.art/products/${slug}`}
+          class="shop notation-shop"
+          target="_blank">Shop now</a
+        >
       </div>
     </div>
 
-    <div class="menu-bottom container">
+    <!-- <div class="menu-bottom container">
       <a href="#" class="notation">Anterior</a>
       <a href="/">X</a>
       <a href="#" class="notation">Siguiente</a>
-    </div>
+    </div> -->
   </Main>
   <Footer />
 </Layout>
@@ -67,7 +79,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     display: grid;
     gap: 8rem;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto 8rem;
     align-items: start;
   }
 
@@ -117,6 +129,15 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     margin-bottom: 1rem;
   }
 
+  .shop {
+    margin-top: 2rem;
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    color: var(--black);
+    text-decoration: none;
+    z-index: 2;
+  }
+
   .content-text p span {
     font-family: var(--font-body);
     text-transform: none;
@@ -138,6 +159,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     .grid {
       grid-template-columns: 1fr 400px;
       padding: 12rem 0;
+      margin: 0 auto 0;
     }
 
     .menu-bottom a {
@@ -153,6 +175,14 @@ const dateFormated = date.toLocaleDateString('en-CO', {
   globalThis.document.querySelectorAll('.notation').forEach(el => {
     annotate(el, {
       type: 'underline',
+      color: '#f9d71c',
+      strokeWidth: 4
+    }).show()
+  })
+
+  globalThis.document.querySelectorAll('.notation-shop').forEach(el => {
+    annotate(el, {
+      type: 'box',
       color: '#f9d71c',
       strokeWidth: 4
     }).show()

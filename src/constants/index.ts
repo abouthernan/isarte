@@ -7,6 +7,7 @@ export interface ProductProps {
   title: string;
   body: string;
   category: string;
+  slug: string;
   images: Array<{ src: string }>;
   createdAt: string;
   tags: Array<string> | null | string;

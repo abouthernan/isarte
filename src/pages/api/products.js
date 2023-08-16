@@ -12,6 +12,7 @@ export async function get() {
       category: product.product_type,
       createdAt: product.created_at,
       tags: product.tags,
+      slug: product.handle,
       images: product.images.map(image => {
         return {
           src: image.src
