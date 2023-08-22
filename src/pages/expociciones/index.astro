@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Vertical.astro'
+import Header from '../../components/header/Header.astro'
+import Main from '../../components/shared/main/Main.astro'
+import Title from '../../components/shared/heading/Title.astro'
+import { Filter } from '../../components/shared/filter/Filter'
+import Footer from '../../components/shared/footer/Footer.astro'
+---
+
+<Layout title="Isarte · Galería">
+  <Header />
+  <Main>
+    <Title text="Galería" />
+    <Filter client:load />
+  </Main>
+  <Footer />
+</Layout>
