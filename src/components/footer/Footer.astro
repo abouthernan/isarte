@@ -1,16 +1,14 @@
 ---
+import { socialMedia } from '../../data/socialmedia'
+
 const socialLinks = [
   {
     name: "Instagram",
-    url: "#",
+    url: socialMedia.ig,
   },
   {
     name: "Facebook",
-    url: "#",
-  },
-  {
-    name: "Twitter",
-    url: "#",
+    url: socialMedia.fb,
   },
 ];
 ---
@@ -18,8 +16,12 @@ const socialLinks = [
 <footer>
   <h2>Social</h2>
   <nav>
-    {socialLinks.map(({ name, url }) => <a href={url}>{name}</a>)}
+    {socialLinks.map(({ name, url }) => <a href={url} target="_blank">{name}</a>)}
   </nav>
+
+  <p class="vehement">
+    Powered by <a href="https://vehement.co" target="_blank">Vehement</a>
+  </p>
 </footer>
 
 <style>
@@ -32,6 +34,7 @@ const socialLinks = [
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    position: relative;
   }
 
   h2 {
@@ -50,6 +53,12 @@ const socialLinks = [
   a {
     color: var(--white);
     text-decoration: none;
+  }
+
+  .vehement {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1.4rem;
   }
 
   @media (min-width: 768px) {
