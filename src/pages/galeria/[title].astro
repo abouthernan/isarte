@@ -81,6 +81,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     justify-content: center;
     margin: 0 auto 8rem;
     align-items: start;
+    padding: 4rem 0 0;
   }
 
   .content-img {
@@ -102,6 +103,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     justify-content: flex-start;
     align-items: flex-start;
     color: var(--black);
+    padding: 0 2rem;
   }
 
   .content-text h1 {
@@ -110,7 +112,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     font-size: var(--font-lg);
     margin-bottom: 2rem;
     word-wrap: break-word;
-    line-break: anywhere;
+    white-space: normal;
   }
 
   .content-text p,
@@ -155,7 +157,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
     margin: 3rem 0 6rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .grid {
       grid-template-columns: 1fr 400px;
       padding: 12rem 0;
@@ -164,6 +166,10 @@ const dateFormated = date.toLocaleDateString('en-CO', {
 
     .menu-bottom a {
       margin: 0 0 8rem;
+    }
+
+    .content-text {
+      padding: 0;
     }
   }
 </style>
