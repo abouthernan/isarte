@@ -56,36 +56,15 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
   }
 
   span {
-    color: var(--black);
+    color: var(--white);
     font-family: var(--font-primary);
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
     font-size: var(--font-md);
     z-index: 2;
     text-transform: uppercase;
     transform: translateY(0.5rem);
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-  }
-
-  a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55.3rem;
-    background-color: var(--white);
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-    z-index: 1;
-  }
-
-  a:hover::before {
-    opacity: 0.9;
-  }
-
-  a:hover span {
-    transform: translateY(-1.5rem);
     opacity: 1;
+    transition: all 0.5s ease-in-out;
   }
 
   @media (min-width: 1024px) {
@@ -95,6 +74,34 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
       justify-content: center;
       padding: 0 8rem;
       margin: 0;
+    }
+
+    span {
+      color: var(--black);
+      opacity: 0;
+      text-shadow: none;
+    }
+
+    a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55.3rem;
+      background-color: var(--white);
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      z-index: 1;
+    }
+
+    a:hover::before {
+      opacity: 0.9;
+    }
+
+    a:hover span {
+      transform: translateY(-1.5rem);
+      opacity: 1;
     }
   }
 </style>
