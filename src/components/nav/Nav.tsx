@@ -17,7 +17,7 @@ export const Nav = ({ isOpen }: { isOpen: boolean }) => {
     >
       <ul>
         <li>
-          <a href="/">Home</a>
+          <a href="/">Inicio</a>
         </li>
         {mainMenu.map(({ path, name, external }: MainMenuProps) => (
           <li key={name}>

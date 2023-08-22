@@ -5,7 +5,7 @@ import Nav from "./Nav";
 export const ToggleButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const titleButton = isOpen ? "Close" : "Menu";
+  const titleButton = isOpen ? "Cerrar" : "Menu";
 
   const toggleButton = () => {
     setIsOpen(!isOpen);
