@@ -19,9 +19,13 @@ const socialLinks = [
     {socialLinks.map(({ name, url }) => <a href={url} target="_blank">{name}</a>)}
   </nav>
 
-  <p class="vehement">
-    Powered by <a href="https://vehement.co" target="_blank">Vehement</a>
-  </p>
+
+  <div class="vehement">
+    <img width="150" src="/logo-full-white.svg" alt="puede ser una imagen del logo de isabel renfijo art">
+    <p class="vehement-text">
+      Powered by <a class="vehement-link" href="https://vehement.co" target="_blank">Vehement</a>
+    </p>
+  </div>
 </footer>
 
 <style>
@@ -59,6 +63,10 @@ const socialLinks = [
     position: absolute;
     bottom: 2rem;
     font-size: 1.4rem;
+  }
+  
+  .vehement-link {
+    display: inline;
   }
 
   @media (min-width: 768px) {
