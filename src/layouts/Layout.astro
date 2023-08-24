@@ -125,7 +125,7 @@ const { title } = Astro.props
 
 <script lang="js">
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.matchMedia('(max-width: 768px)').matches) return
+  if (window.matchMedia('(max-width: 1024px)').matches) return
 
   function scrollHorizontally(e) {
     e = window.event || e;
@@ -138,9 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (window.addEventListener) {
     // IE9, Chrome, Safari, Opera
-    window.addEventListener("mousewheel", scrollHorizontally, false);
+    window.addEventListener("mousewheel", scrollHorizontally, { passive: false });
     // Firefox
-    window.addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    window.addEventListener("DOMMouseScroll", scrollHorizontally, { passive: false });
     } else {
       // IE 6/7/8
       window.attachEvent("onmousewheel", scrollHorizontally);
