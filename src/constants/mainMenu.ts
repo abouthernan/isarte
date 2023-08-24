@@ -18,7 +18,7 @@ export const mainMenu = [
     picture: galleryPicture
   },
   {
-    path: '#',
+    path: '/exposiciones',
     name: 'Exposiciones',
     picture: awardsPicture
   },
@@ -26,7 +26,7 @@ export const mainMenu = [
     path: 'https://tienda.isabelrengifo.art',
     name: 'Tienda',
     picture: exhibitionsPicture,
-    external: true
+    external: false
   },
   {
     path: '#',
