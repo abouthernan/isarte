@@ -3,6 +3,8 @@ export interface Props {
   title: string
 }
 
+import Metatags from '../components/Metatags.astro';
+
 const { title } = Astro.props
 ---
 
@@ -15,8 +17,12 @@ const { title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <Metatags />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMNN27VD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <slot />
   </body>
 </html>
