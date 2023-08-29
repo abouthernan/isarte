@@ -2,16 +2,61 @@
 import Layout from '../../layouts/Vertical.astro'
 import Header from '../../components/header/Header.astro'
 import Main from '../../components/shared/main/Main.astro'
-import Title from '../../components/shared/heading/Title.astro'
-import { Filter } from '../../components/shared/filter/Filter'
-import Footer from '../../components/shared/footer/Footer.astro'
+import { SwiperExpo } from '../../components/shared/swiper/exposiciones/SwiperExpo'
 ---
 
 <Layout title="Isarte · Exposiciones">
-  <Header />
-  <Main>
-    <Title text="Exposiciones" />
-    <Filter client:load />
-  </Main>
-  <Footer />
+  <Header isBgDark={true} />
+  <main>
+    <div>
+      <SwiperExpo client:load />
+    </div>
+  </main>
 </Layout>
+
+<style>
+  body {
+    background: #000;
+  }
+
+  main {
+    width: 100vw;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+    place-items: center;
+  }
+
+  :global(.mySwiperExpo) {
+    heigth: calc(100vh - 10rem);
+    padding-top: 10rem;
+    width: 100vw;
+    z-index: 0;
+  }
+
+  :global(.mySwiperExpo img) {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    width: 100vw;
+  }
+
+  :global(.mySwiperExpo .swiper-pagination-bullet-active) {
+    background: var(--cream);
+  }
+
+  @media (min-width: 1024px) {
+    :global(.mySwiperExpo img) {
+      aspect-ratio: 16/9;
+      object-fit: contain;
+    }
+
+    main {
+      height: 100vh;
+      min-height: 100vh;
+      overflow: hidden;
+      display: grid;
+      place-content: center;
+      place-items: center;
+    }
+  }
+</style>

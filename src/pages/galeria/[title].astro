@@ -24,7 +24,6 @@ const {
   body,
   category,
   images,
-  tags,
   createdAt,
   slug
 } = page
@@ -39,7 +38,7 @@ const dateFormated = date.toLocaleDateString('en-CO', {
 ---
 
 <Layout title={`Isarte · Galería · ${titleProduct}`}>
-  <Header />
+  <Header isBgDark={false} />
   <Main>
     <Submenu page={titleProduct} />
     <div class="grid container">
