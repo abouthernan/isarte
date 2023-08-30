@@ -1,14 +1,13 @@
 ---
 import Layout from '../../layouts/Vertical.astro'
 import Header from '../../components/header/Header.astro'
-import Main from '../../components/shared/main/Main.astro'
 import { SwiperExpo } from '../../components/shared/swiper/exposiciones/SwiperExpo'
 ---
 
 <Layout title="Isarte · Exposiciones">
   <Header isBgDark={true} />
   <main>
-    <div>
+    <div class="content">
       <SwiperExpo client:load />
     </div>
   </main>
@@ -19,17 +18,22 @@ import { SwiperExpo } from '../../components/shared/swiper/exposiciones/SwiperEx
     background: #000;
   }
 
+  :global(.nav-menu) {
+    background: #000!important;
+  }
+
+  :global(.nav-menu a) {
+    color: var(--cream)!important;
+  }
+
   main {
-    width: 100vw;
-    overflow: hidden;
     display: grid;
     place-content: center;
     place-items: center;
   }
 
   :global(.mySwiperExpo) {
-    heigth: calc(100vh - 10rem);
-    padding-top: 10rem;
+    height: calc(100vh - 10rem);
     width: 100vw;
     z-index: 0;
   }
@@ -37,7 +41,8 @@ import { SwiperExpo } from '../../components/shared/swiper/exposiciones/SwiperEx
   :global(.mySwiperExpo img) {
     aspect-ratio: 1/1;
     object-fit: contain;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
   }
 
   :global(.mySwiperExpo .swiper-pagination-bullet-active) {
@@ -45,18 +50,15 @@ import { SwiperExpo } from '../../components/shared/swiper/exposiciones/SwiperEx
   }
 
   @media (min-width: 1024px) {
-    :global(.mySwiperExpo img) {
-      aspect-ratio: 16/9;
-      object-fit: contain;
+    main {
+      width: 100%;
+      height: 100%;
+      top: 10rem;
+      position: relative;
     }
 
-    main {
-      height: 100vh;
-      min-height: 100vh;
-      overflow: hidden;
-      display: grid;
-      place-content: center;
-      place-items: center;
+    :global(.mySwiperExpo img) {
+      aspect-ratio: 9/16;
     }
   }
 </style>
