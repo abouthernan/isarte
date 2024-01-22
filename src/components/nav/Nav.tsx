@@ -19,13 +19,15 @@ export const Nav = ({ isOpen }: { isOpen: boolean }) => {
         <li>
           <a href="/">Inicio</a>
         </li>
-        {mainMenu.map(({ path, name, external }: MainMenuProps) => (
-          <li key={name}>
-            <a href={path} target={external ? '_blank' : ''}>
-              {name}
-            </a>
-          </li>
-        ))}
+        {mainMenu
+          .filter(item => item.disabled !== true)
+          .map(({ path, name, external }: MainMenuProps) => (
+            <li key={name}>
+              <a href={path} target={external ? '_blank' : ''}>
+                {name}
+              </a>
+            </li>
+          ))}
       </ul>
     </motion.nav>
   )

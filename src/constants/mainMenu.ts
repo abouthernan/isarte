@@ -9,6 +9,7 @@ export interface MainMenuProps {
   name: string
   picture: string
   external?: boolean
+  disabled?: boolean
 }
 
 export const mainMenu = [
@@ -31,11 +32,13 @@ export const mainMenu = [
   {
     path: '#',
     name: 'Talleres',
-    picture: eventsPicture
+    picture: eventsPicture,
+    disabled: true
   },
   {
     path: '#',
     name: 'Reconocimientos',
-    picture: workshopsPicture
+    picture: workshopsPicture,
+    disabled: true
   }
 ]
