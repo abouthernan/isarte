@@ -3,7 +3,7 @@ export interface Props {
   title: string
 }
 
-import Metatags from '../components/Metatags.astro';
+import Metatags from '../components/Metatags.astro'
 
 const { title } = Astro.props
 ---
@@ -14,142 +14,163 @@ const { title } = Astro.props
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/logo-black.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/logo-white.svg"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <Metatags />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMNN27VD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NMNN27VD"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
     <!-- End Google Tag Manager (noscript) -->
     <slot />
+    <style is:global>
+      @font-face {
+        font-family: 'Syne';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Open Sans'), url('/fonts/Syne-bold.woff2') format('woff2'),
+          url('/fonts/Syne-bold.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Cormorant Infant';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Cormorant Infant'),
+          url('/fonts/CormorantInfant-Regular.woff2') format('woff2'),
+          url('/fonts/CormorantInfant-Regular.ttf') format('truetype');
+      }
+
+      :root {
+        --white: #fff;
+        --black: #212121;
+        --cream: #f5f4ed;
+        --yellow: #ffd26a;
+        /* fonts */
+        --font-primary: 'Syne', sans-serif;
+        --font-secondary: 'Cormorant Infant', serif;
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        /* font-size */
+        --font-sm: 1.4rem;
+        --font-base: 1.6rem;
+        --font-md: 1.9rem;
+        --font-lg: clamp(3rem, 6vw, 4rem);
+        --font-xl: 5rem;
+      }
+
+      @media (min-width: 768px) {
+        :root {
+          --font-sm: 1.6rem;
+          --font-base: 1.8rem;
+          --font-md: 2.1rem;
+          --font-lg: 6rem;
+          --font-xl: clamp(6rem, 10vw, 10rem);
+        }
+      }
+
+      html {
+        box-sizing: border-box;
+        font-size: 62.5%;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        font-size: var(--font-base);
+        overflow-x: hidden;
+        -webxkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 0 2.7rem;
+      }
+
+      @media (min-width: 1024px) {
+        body {
+          overflow-x: auto;
+          overflow-y: hidden;
+          display: flex;
+          max-height: 100vh;
+          min-width: 100vw;
+        }
+
+        ::-webkit-scrollbar {
+          width: 1rem;
+          height: 1rem;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: var(--black);
+        }
+      }
+
+      :has(.burger.open) {
+        overflow: hidden !important;
+      }
+    </style>
+
+    <script lang="js">
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.matchMedia('(max-width: 1024px)').matches) return
+
+        function scrollHorizontally(e) {
+          e = window.event || e
+          let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))
+          let scrollSpeed = 60 // Janky jank <<<<<<<<<<<<<<
+          document.documentElement.scrollLeft -= delta * scrollSpeed
+          document.body.scrollLeft -= delta * scrollSpeed
+          e.preventDefault()
+        }
+
+        if (window.addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          window.addEventListener('mousewheel', scrollHorizontally, {
+            passive: false
+          })
+          // Firefox
+          window.addEventListener('DOMMouseScroll', scrollHorizontally, {
+            passive: false
+          })
+        } else {
+          // IE 6/7/8
+          window.attachEvent('onmousewheel', scrollHorizontally)
+        }
+      })
+    </script>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: 'Syne';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Open Sans'), url('/fonts/Syne-bold.woff2') format('woff2'),
-      url('/fonts/Syne-bold.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Cormorant Infant';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Cormorant Infant'),
-      url('/fonts/CormorantInfant-Regular.woff2') format('woff2'),
-      url('/fonts/CormorantInfant-Regular.ttf') format('truetype');
-  }
-
-  :root {
-    --white: #fff;
-    --black: #212121;
-    --cream: #f5f4ed;
-    --yellow: #ffd26a;
-    /* fonts */
-    --font-primary: 'Syne', sans-serif;
-    --font-secondary: 'Cormorant Infant', serif;
-    --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-    /* font-size */
-    --font-sm: 1.4rem;
-    --font-base: 1.6rem;
-    --font-md: 1.9rem;
-    --font-lg: clamp(3rem, 6vw, 4rem);
-    --font-xl: 5rem;
-  }
-
-  @media (min-width: 768px) {
-    :root {
-      --font-sm: 1.6rem;
-      --font-base: 1.8rem;
-      --font-md: 2.1rem;
-      --font-lg: 6rem;
-      --font-xl: clamp(6rem, 10vw, 10rem);
-    }
-  }
-
-  html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-    font-size: var(--font-base);
-    overflow-x: hidden;
-    -webxkit-font-smoothing: antialiased;
-  }
-
-  .container {
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 0 2.7rem;
-  }
-
-  @media (min-width: 1024px) {
-    body {
-      overflow-x: auto;
-      overflow-y: hidden;
-      display: flex;
-      max-height: 100vh;
-      min-width: 100vw;
-    }
-
-    ::-webkit-scrollbar {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--black);
-    }
-  }
-
-  :has(.burger.open) {
-    overflow: hidden !important;
-  }
-</style>
-
-<script lang="js">
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.matchMedia('(max-width: 1024px)').matches) return
-
-  function scrollHorizontally(e) {
-    e = window.event || e;
-    let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-    let scrollSpeed = 60; // Janky jank <<<<<<<<<<<<<<
-    document.documentElement.scrollLeft -= (delta * scrollSpeed);
-    document.body.scrollLeft -= (delta * scrollSpeed);
-    e.preventDefault();
-  }
-
-  if (window.addEventListener) {
-    // IE9, Chrome, Safari, Opera
-    window.addEventListener("mousewheel", scrollHorizontally, { passive: false });
-    // Firefox
-    window.addEventListener("DOMMouseScroll", scrollHorizontally, { passive: false });
-    } else {
-      // IE 6/7/8
-      window.attachEvent("onmousewheel", scrollHorizontally);
-    }
-  })
-</script>

@@ -4,21 +4,23 @@ import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
 
 <nav>
   {
-    mainMenu.map(({ path, name, picture, external }: MainMenuProps) => (
-      <a
-        href={path}
-        aria-label={name}
-        title={name}
-        target={external ? '_blank' : ''}
-      >
-        <img
-          src={picture}
-          width="375"
-          alt="puede ser una imagen de una de las obras de isarte"
-        />
-        <span>{name}</span>
-      </a>
-    ))
+    mainMenu
+      .filter(item => item.disabled !== true)
+      .map(({ path, name, picture, external }: MainMenuProps) => (
+        <a
+          href={path}
+          aria-label={name}
+          title={name}
+          target={external ? '_blank' : ''}
+        >
+          <img
+            src={picture}
+            width="375"
+            alt="puede ser una imagen de una de las obras de isarte"
+          />
+          <span>{name}</span>
+        </a>
+      ))
   }
 </nav>
 
