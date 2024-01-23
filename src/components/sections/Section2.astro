@@ -1,26 +1,25 @@
 ---
 import { mainMenu, MainMenuProps } from '../../constants/mainMenu'
+const navItems = mainMenu.filter(item => item.disabled !== true)
 ---
 
 <nav>
   {
-    mainMenu
-      .filter(item => item.disabled !== true)
-      .map(({ path, name, picture, external }: MainMenuProps) => (
-        <a
-          href={path}
-          aria-label={name}
-          title={name}
-          target={external ? '_blank' : ''}
-        >
-          <img
-            src={picture}
-            width="375"
-            alt="puede ser una imagen de una de las obras de isarte"
-          />
-          <span>{name}</span>
-        </a>
-      ))
+    navItems.map(({ path, name, picture, external }: MainMenuProps) => (
+      <a
+        href={path}
+        aria-label={name}
+        title={name}
+        target={external ? '_blank' : ''}
+      >
+        <img
+          src={picture}
+          width="375"
+          alt="puede ser una imagen de una de las obras de isarte"
+        />
+        <span>{name}</span>
+      </a>
+    ))
   }
 </nav>
 
